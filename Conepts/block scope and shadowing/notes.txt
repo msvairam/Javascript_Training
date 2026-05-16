@@ -1,0 +1,101 @@
+Block defined by { } curly braces.
+
+{ 
+// Compound Statement
+}
+
+Multiple statement compound to single statement is called block scope.
+if(true) // SyntaxError Unexpected end of input
+
+if(true) {
+	 var a = 10;
+	console.log(a);
+} // it will work.
+
+It is block, wrapping multiple statement inside block
+
+
+if(true) console.log('vairamuthu') // it will work
+if we want multiple statment than use block.
+
+
+Block SCOPE:-
+-----------
+
+{
+ var a =10;
+ let b = 100;
+ const c = 1000;
+}
+
+Check first line program,
+
+Block {
+	b : undefined
+	c : undefined
+}
+
+a is global scope
+
+
+Shadowing in JS:-
+----------------
+
+If we create same variable outside of block
+
+var a  = 100;
+{
+var a = 10;
+}
+console.log(a); // 10
+
+a 10 is shadowing of a 100. also 100 overwrited by 10
+
+ let b = 20;
+{
+	let b  = 200;
+}
+
+console.log(b);
+
+b 200 is shadowing of 20. but not overwrite.
+Because. b = 20 is in special memory script scope in temporal dead zone.
+b = 200 is in block scope.
+
+Shadowing also in function also.
+const c  = 10;
+function x() {
+	const c  = 100;
+	console.log(c); // 100
+}
+console.log(c); // 10
+
+
+Ilegal Shadowing :-
+------------------
+
+let a  = 20;
+{
+	var  a = 10;
+}
+
+O/P : SyntaxError Indentifier a has already been declared.
+Because var can access let a. If it is try to overwrite. than get Error.
+
+VAR Dont have boundry of block scope. It is FUNCTIONAL SCOPE.
+
+var  a = 10;
+ {
+	let a  = 20;
+}
+
+O/P : It is perfect valid.
+
+Const also same behaviour.
+
+Lexical scope work also in block scope also.
+
+Arrow function and normal function, both are same behaviour of scope.
+
+
+

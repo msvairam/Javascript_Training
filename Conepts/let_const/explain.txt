@@ -1,0 +1,52 @@
+Let and const also store in memory space before start to run, but different memory space.
+let and const is more strict compare with var.
+
+ReferenceError will show cann't access a before inilitization.
+
+Temporal Dead zone:
+The time since let was hosted. Inlizatoin some value, B Time between that known as temportal Dead zone.
+
+Start time a is undefined.
+Let a =  Between this time is temporal Dead zone end in when value assign to variable.
+
+Whenever we tried to access available inside temporal Dead zone. It is give you a Reference Error.
+
+Only you can access value in Intilization 
+
+window.b = 100  var for store in global context memory.
+window.a -> Undefined. before difference memory space.
+
+let a =10;
+let b  =100;
+
+SyntaxError: Indetifier a has already been delcared.
+
+It not allowed single line of code for executed. Throw Error.
+
+--------------------
+
+const a;
+
+a  = 100// SyntaxError: Missing Initializer in const declaration
+
+----------------
+
+const a = 1000;
+
+a = 10; // TypeError: Assignment to Constant Variable.
+
+----------------
+
+console.log(a) // ReferenceError:  Can't access a before Initialization.
+let a  = 10;
+
+---------------------------
+
+let a = 10;
+let a = 100; // SyntaxError:  Indetifier a has already been declared.
+
+------------------------------
+
+console.log(x); ReferenceError:  x is not defined.
+
+-------------------------

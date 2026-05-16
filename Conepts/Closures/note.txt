@@ -1,0 +1,57 @@
+A Closure is the combination of a function bundled together (enclosed) with references to it surrounding state (the Lexical Environment).
+(OR)
+A Closure gives you access to an outer functions variable and function from an inner function.
+In Javascript Closure are created every time a function is created. at function creation time.
+
+function x() {
+var a  = 7;
+	function y() {
+		console.log(a);
+	}
+	a();
+}
+x();
+
+Y() function bundle with lexical scope of x() function variables.
+
+-----------
+
+In JS. If return functions y() from another function x().
+It will return with Lexical scope of where is it return?. It is closure.
+
+Uses of Closures:-
+----------------
+>> Module Design Pattern
+>> Currying
+>> Functions like once
+>> Memoize
+>> Maintaining State in async world
+>> setTimeout
+>> Iterators
+>> and many more...
+
+𝗜𝗻𝘁𝗲𝗿𝘃𝗶𝗲𝘄𝗲𝗿: "You’ve got 2 minutes. Explain Closures to me."
+𝗠𝗲: "Buckle up, here we go! 🚀"
+
+➤ 𝗪𝗵𝗮𝘁’𝘀 𝗮 𝗖𝗹𝗼𝘀𝘂𝗿𝗲?
+
+A closure is when a function "remembers" the variables in its scope even after it’s executed. Imagine leaving a room, but still having access to everything inside it.
+
+➤ 𝗛𝗼𝘄 𝗜𝘁 𝗪𝗼𝗿𝗸𝘀:
+
+Functions in JavaScript carry their lexical environment with them. When a function is defined, it keeps a reference to the scope where it was created, even if it's called outside that scope.
+
+➤ 𝗪𝗵𝘆 𝗜𝘁’𝘀 𝗣𝗼𝘄𝗲𝗿𝗳𝘂𝗹:
+
+Closures allow us to:
+• Create private variables (data encapsulation).
+• Build factories that generate customized functions.
+• Handle async operations where the function needs access to variables after execution.
+
+➤ 𝗘𝘃𝗲𝗿𝘆𝗱𝗮𝘆 𝗘𝘅𝗮𝗺𝗽𝗹𝗲𝘀:
+
+• Event Handlers: Buttons in the browser hold a reference to variables in the outer scope.
+• Function Factories: You can create multiple personalized versions of the same function.
+• Memoization: Caching results of expensive calculations.
+
+Closures make JavaScript magical. That’s why understanding them is a game-changer for building dynamic and efficient code. Time’s up!

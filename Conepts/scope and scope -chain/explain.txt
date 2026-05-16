@@ -1,0 +1,17 @@
+Scope:
+
+Execution Context created with Lexical Environment.
+
+Lexical Environment have local mermory and reference to parent Lexical Environment (Lexical Parent) .
+
+Lexical Parent :
+Refercence of Lexical Environment of parent.
+
+c() local Memory +  Reference to Parent of Lexical Enviroment of a()
+a() local Memory + Reference to Parent of Lexical Enviroment of Global
+
+Global Environment have local Memory + Refence to Parent is NULL.
+
+Lexically or Physically present of a()
+
+If is it not present in Physically. than check Lexically Reference of Parent of Global.

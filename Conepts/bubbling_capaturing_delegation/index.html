@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=-+9-+, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            min-width: 100px;
+            min-height: 100px;
+            padding: 10px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="grandparent">
+        <div id="parent">
+            <div id="child"></div>
+        </div>
+    </div>
+
+    <ul id="ul_container">
+        <li>Masanamuthu</li>
+        <li>Soluchana</li>
+        <li>Vairamuthu</li>
+        <li>Shri Andal</li>
+    </ul>
+</body>
+<script type="text/javascript"> 
+//bubble up, trigger down
+    document.getElementById('grandparent').addEventListener('click', ($event) => {
+        console.log('grand parent');
+    }, true) 
+    document.getElementById('parent').addEventListener('click', () => {
+        console.log('parent');
+    }, false)
+    document.getElementById('child').addEventListener('click', () => {
+        console.log('child');
+    }, false);
+    document.getElementById('ul_container').addEventListener('click', async (e) => {
+        const { fun } = await import('./index.js');
+        fun();
+    })
+</script>
+</html>
