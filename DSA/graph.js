@@ -1,76 +1,97 @@
 class Graph {
-    constructor() {
-        this.adjacencyList = {};
-    }
+  constructor() {
+    this.adjacencyList = {};
+  }
 
-    addVertex(vertex) {
-        if (!this.adjacencyList[vertex]) {
-            this.adjacencyList[vertex] = [];
+  addVertex(vertex) {
+    if (!this.adjacencyList[vertex]) {
+      this.adjacencyList[vertex] = [];
+    }
+  }
+
+  addEdges(v1, v2) {
+    this.adjacencyList[v1].push(v2);
+    this.adjacencyList[v2].push(v1);
+  }
+
+  removeEdges(v1, v2) {
+    this.adjacencyList[v1] = this.adjacencyList[v1].filter((v) => v != v2);
+    this.adjacencyList[v2] = this.adjacencyList[v2].filter((v) => v != v1);
+  }
+
+  bfs(start) {
+    const queue = [start];
+    const visited = new Set([start]);
+    const result = [];
+
+    while (queue.length) {
+      const vertex = queue.shift();
+      result.push(vertex);
+
+      for (let neighbor of this.adjacencyList[vertex]) {
+        if (!visited.has(neighbor)) {
+          queue.push(neighbor);
+          visited.add(neighbor);
         }
+      }
     }
 
-    addEdges(v1, v2) {
-        this.adjacencyList[v1].push(v2);
-        this.adjacencyList[v2].push(v1);
-    }
+    return result;
+  }
 
-    removeEdges(v1, v2) {
-        this.adjacencyList[v1] = this.adjacencyList[v1].filter((v) => v != v2);
-        this.adjacencyList[v2] = this.adjacencyList[v2].filter((v) => v != v1);
-    }
+  dfsIterative(start) {
+    const stack = [start];
+    const visited = new Set([start]);
+    const result = [];
 
-    bfs(start) {
-        const queue = [start];
-        const visited = new Set([start]);
-        const result = [];
+    while (stack.length) {
+      const vertex = stack.pop();
+      result.push(vertex);
 
-        while(queue.length) {
-            const vertex = queue.shift();
-            result.push(vertex);
-
-            for(let neighbor of this.adjacencyList[vertex]) {
-                if (!visited.has(neighbor)) {
-                    queue.push(neighbor);
-                    visited.add(neighbor);
-                }
-            }
+      for (let neighbor of this.adjacencyList[vertex]) {
+        if (!visited.has(neighbor)) {
+          stack.push(neighbor);
+          visited.add(neighbor);
         }
+      }
+    }
+    return result;
+  }
 
-        return result;
+  dfsRecursive(start, visited = new Set([start]), result = []) {
+    visited.add(start);
+    result.push(start);
+
+    for (let neighbor of this.adjacencyList[start]) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        this.dfsRecursive(neighbor, visited, result);
+      }
     }
 
-    dfsIterative(start) {
-        const stack = [start];
-        const visited= new Set([start]);
-        const result = [];
+    return result;
+  }
 
-        while(stack.length) {
-            const vertex = stack.pop();
-            result.push(vertex);
+  shortestPath(start, end) {
+    const queue = [[start, [start]]]; // [node, path]
+    const visited = new Set([start]);
 
-            for(let neighbor of this.adjacencyList[vertex]) {
-                if (!visited.has(neighbor)) {
-                    stack.push(neighbor);
-                    visited.add(neighbor);
-                }
-            }
+    while (queue.length) { 
+      const [vertex, path] = queue.shift();
+
+      // reached destination!
+      if (vertex === end) return path;
+
+      for (let neighbor of this.adjacencyList[vertex]) {
+        if (!visited.has(neighbor)) {
+          visited.add(neighbor);
+          queue.push([neighbor, [...path, neighbor]]);
         }
-        return result;
+      }
     }
 
-    dfsRecursive(start, visited = new Set([start]), result = []) {
-        visited.add(start);
-        result.push(start);
-
-        for(let neighbor of this.adjacencyList[start]) {
-            if (!visited.has(neighbor)) {
-                visited.add(neighbor);
-                this.dfsRecursive(neighbor, visited, result);
-            }
-        }
-
-        return result;
-    }
+    return null; // no path found
+  }
 }
 
 const g = new Graph();
@@ -89,3 +110,5 @@ console.log(g.adjacencyList);
 console.log(g.bfs(1));
 console.log(g.dfsIterative(1));
 console.log(g.dfsRecursive(1));
+
+console.log(g.shortestPath(1, 4)); // [1, 2, 4]
