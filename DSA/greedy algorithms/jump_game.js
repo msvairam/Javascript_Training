@@ -5,7 +5,7 @@ can you reach the last index? */
 function canJump(arr) {
     let maxIndex = 0;
 
-    for(let i =0; i < arr.length; i++) {
+    for(let i = 0; i < arr.length; i++) {
 
         if (i > maxIndex) return false;
 
