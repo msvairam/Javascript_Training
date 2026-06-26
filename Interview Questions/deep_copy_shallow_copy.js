@@ -27,10 +27,23 @@ let obj1 = { name: "bittu", details: { city: "blr" } };
 
 const obj2 = Object.assign({}, obj1);
 
-obj1.details.city = 'chennai';
+//obj1.details.city = 'chennai';
 
 console.log(obj2.details.city); // chennai
 console.log(obj1.details.city); //  chennai
+
+const obj3 = {
+  ...obj1,
+  details: {
+    ...obj1.details,
+    city: 'chennai',
+  }
+};
+
+obj3.details.city = 'madurai';
+
+console.log(obj1.details.city);
+console.log(obj3.details.city);
 
 // Original array of objects with nested values
 let students = [
