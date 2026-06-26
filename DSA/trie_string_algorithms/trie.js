@@ -5,7 +5,7 @@ class TrieNode {
   }
 }
 
-class Trie {
+export class Trie {
   constructor() {
     this.root = new TrieNode();
   }
@@ -101,7 +101,7 @@ class Trie {
     return { deleted, shouldDelete: false };
   }
 }
-
+/*
 const trie = new Trie();
 
 trie.insert("cat");
@@ -129,3 +129,4 @@ console.log(trie.autoComplete("care"));
 console.log('_________Delete___________');
 console.log(trie.delete('cat'));
 console.log(trie.root);
+*/
