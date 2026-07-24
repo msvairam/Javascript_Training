@@ -1,4 +1,4 @@
-function subarraysWithSumK(arr, k) {
+function subarraysWithSumK1(arr, k) {
     const result = [];
 
     for(let i = 0; i < arr.length; i++) {
