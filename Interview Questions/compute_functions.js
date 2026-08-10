@@ -7,7 +7,7 @@ const input  = {
     }
 };
 
-function compute(a,b,c, obj =input) {
+function compute(a,b,c, obj = input) {
     for (const val in obj) {
         if (typeof(obj[val]) ===  'function') {
             obj[val] = obj[val](a,b,c);

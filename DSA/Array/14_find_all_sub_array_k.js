@@ -17,7 +17,7 @@ function findAllSubarraysWithGivenSum(arr, k) { // 0(n2) // Better
 
 function findAllSubarraysWithGivenSumOptimal(arr, k) {
     const mapStore = new Map();
-    mapStore.set(0,1);
+    mapStore.set(0,1); // Initital set(0,1) important
     let prefixSum = 0;
     let count = 0;
 
