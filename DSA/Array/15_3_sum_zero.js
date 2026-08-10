@@ -37,27 +37,33 @@ function sumOf3Zero2(arr) { // Better
 }
 
 function sumOf3Zero3(arr) { // Optimal
-    arr.sort();
+    arr.sort(); // Important
     const n = arr.length;
     const result = [];
 
     for(let i = 0; i < n; i++) {
         if(i > 0 && arr[i] === arr[i - 1]) continue;
-        let j = i +1;
-        let k = n - 1;
+
+        if(arr[i] > 0) break;
+
+        let j = i +1; // left pointer after i;
+        let k = n - 1; // right pointer end of arr;
         while(j < k) {
             let sum = arr[i] + arr[j] + arr[k];
             if (sum < 0) {
-                j++;
+                j++; // need bigger sum → move left right
             } else if(sum > 0) {
-                k--;
+                k--; // need smaller sum → move right left
             } else {
                 result.push([arr[i], arr[j] , arr[k]]);
+                
+                // Skip duplicates for left pointer
+                while(j < k && arr[j] === arr[j+1]) j++;
+                // Skip duplicates for right pointer
+                while(j < k && arr[k] === arr[k-1]) k--;
+
                 j++;
                 k--;
-
-                while(j < k && arr[j] === arr[j-1]) j++;
-                while(j < k && arr[k] === arr[k+1]) k--;
             }
         }
     }
