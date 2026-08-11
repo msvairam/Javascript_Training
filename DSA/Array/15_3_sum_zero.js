@@ -74,7 +74,7 @@ function sumOf3Zero3(arr) { // Optimal
 const arr = [-1, 0, 1, 2, -1, -4];
 //console.log(sumOf3Zero1(arr));
 //console.log(sumOf3Zero2(arr));
-//const arr1 = [-2. -2, -2, -1, -1, -1, 0, 0, 0, 2, 2, 2, 2];
-console.log(sumOf3Zero3(arr));
+const arr1 = [-2, -2, -2, -1, -1, -1, 0, 0, 0, 2, 2, 2, 2];
+console.log(sumOf3Zero3(arr1));
 
 
