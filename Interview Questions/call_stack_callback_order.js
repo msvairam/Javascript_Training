@@ -150,3 +150,23 @@ Promise.resolve().then(() => {
 });
 
 console.log("4");
+
+console.log("1");
+
+setTimeout(() => {
+    console.log("2");
+
+     const promise = new Promise((resolve, reject) => { 
+        resolve('3'); 
+        console.log('90'); 
+    });
+    promise.then(console.log);
+
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log("4");
+});
+
+console.log("5");
+// 1 5 4 2 90 3
