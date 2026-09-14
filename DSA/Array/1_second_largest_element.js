@@ -33,3 +33,34 @@ function secondSmallestElement(arr) {
 let arr = [-2, -5, -4, -7, -9];
 console.log(secondLargestElement(arr));
 console.log(secondSmallestElement(arr));
+
+
+//Leetcode use cases
+
+let s = "dfa12321afd"
+
+function secondLargestElementByString(s) {
+    if(s.length < 2) {
+        return  -1
+    }
+
+    let largest = -1;
+    let secondLargest = -1;
+
+    let digitExtract = /^\d+$/;
+    for(let i = 0; i < s.length; i++) {
+        if(digitExtract.test(s[i])) {
+            let val = Number(s[i]);
+
+            if (val > largest) {
+                secondLargest = largest;
+                largest = val;
+            } else if (largest > val && secondLargest < val) {
+                secondLargest = val;
+            }
+        }
+    }
+    return secondLargest;
+}
+
+console.log(secondLargestElementByString(s));
