@@ -3,7 +3,10 @@ const s = ["h", "e", "l", "l", "0"];
 function reverseString(s) {
     let n = s.length;
     for(let i = 0; i < n/2; i++) {
-        [s[i], s[n-1-i]] = [s[n-1-i], s[i]];
+        // [s[i], s[n-1-i]] = [s[n-1-i], s[i]];
+        let temp = s[i];
+        s[i] = s[n-1-i];
+        s[n-1-i] = temp;
     }
 }
 
